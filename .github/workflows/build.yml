@@ -1,0 +1,31 @@
+name: Build APK
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build
+        run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CardDeposit-apk
+          path: app/build/outputs/apk/debug/*.apk
+      - name: Save APK to 'apk' branch (for phone download)
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk /tmp/CardDeposit.apk
+          cd /tmp && rm -rf apkrepo && mkdir apkrepo && cd apkrepo
+          git init -q -b apk
+          cp /tmp/CardDeposit.apk .
+          git add CardDeposit.apk
+          git -c user.name=github-actions -c user.email=actions@github.com commit -qm "APK ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" apk

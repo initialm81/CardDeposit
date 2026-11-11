@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.kiwon.carddeposit'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.kiwon.carddeposit"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // 저장소에 포함된 고정 키로 서명 → 새 빌드를 기존 앱 위에 덮어 설치 가능(데이터 유지)
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+// 외부 라이브러리 없이 안드로이드 기본 기능만 사용합니다.
