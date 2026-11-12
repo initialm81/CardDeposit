@@ -2,9 +2,12 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <!-- 카드 모양 -->
-    <path android:fillColor="#FFFFFF"
-        android:pathData="M34,38h40a4,4 0,0 1,4 4v24a4,4 0,0 1,-4 4H34a4,4 0,0 1,-4 -4V42a4,4 0,0 1,4 -4z" />
-    <path android:fillColor="#0F766E" android:pathData="M30,45h48v6H30z" />
-    <path android:fillColor="#0F766E" android:pathData="M36,58h14v4H36z" />
+    <!-- 직접 그린 병아리 얼굴 -->
+    <path android:fillColor="#FFD54A" android:pathData="M50,36c1,-5 4,-7 6,-4c3,-3 6,0 4,5z" />
+    <path android:fillColor="#FFD54A" android:pathData="M32,57a22,22 0 1,0 44,0a22,22 0 1,0 -44,0z" />
+    <path android:fillColor="#3B2F2F" android:pathData="M43.2,53a2.8,2.8 0 1,0 5.6,0a2.8,2.8 0 1,0 -5.6,0z" />
+    <path android:fillColor="#3B2F2F" android:pathData="M59.2,53a2.8,2.8 0 1,0 5.6,0a2.8,2.8 0 1,0 -5.6,0z" />
+    <path android:fillColor="#FF8A3D" android:pathData="M49.5,58.5h9l-4.5,5.5z" />
+    <path android:fillColor="#FFB3A7" android:pathData="M37.5,60a3.2,3.2 0 1,0 6.4,0a3.2,3.2 0 1,0 -6.4,0z" />
+    <path android:fillColor="#FFB3A7" android:pathData="M64.1,60a3.2,3.2 0 1,0 6.4,0a3.2,3.2 0 1,0 -6.4,0z" />
 </vector>
